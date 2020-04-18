@@ -3,7 +3,6 @@
 
 #include <iostream>
 #include <cmath>
-#include "param.hpp"
 
 class Vector2D {
   public:
