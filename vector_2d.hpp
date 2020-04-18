@@ -4,8 +4,13 @@
 #include <iostream>
 #include <cmath>
 
+//#define RAD2DEG 180/M_PI
+//#define DEG2RAD M_PI/180
+
 class Vector2D {
   public:
+    static constexpr double RAD2DEG = 180/M_PI;
+    static constexpr double DEG2RAD = M_PI/180;
     double x;
     double y;
     //constructor
