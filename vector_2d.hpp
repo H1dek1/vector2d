@@ -86,12 +86,12 @@ class Vector2D {
 
     double radians() const
     {
-      return atan(y / x);
+      return atan2(y, x);
     }
 
     double degrees() const
     {
-      return ( atan(y/x) * RAD2DEG );
+      return ( atan2(y, x) * RAD2DEG );
     }
 
     Vector2D rel_pos(const Vector2D origin)
@@ -102,6 +102,12 @@ class Vector2D {
       rel.y = y - origin.y;
 
       return rel;
+    }
+
+    Vector2D unitRelPos(const Vector2D origin)
+    {
+      Vector2D unit = rel_pos(origin);
+      return unit / unit.r();
     }
 
 
