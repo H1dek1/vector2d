@@ -4,15 +4,13 @@
 #include <iostream>
 #include <cmath>
 
-//#define RAD2DEG 180/M_PI
-//#define DEG2RAD M_PI/180
-
 class Vector2D {
   public:
     static constexpr double RAD2DEG = 180/M_PI;
     static constexpr double DEG2RAD = M_PI/180;
     double x;
     double y;
+
     //constructor
     Vector2D() : x(0.0), y(0.0) { }
     //constructor
@@ -27,11 +25,12 @@ class Vector2D {
 
     double abs() const
     {
-      return sqrt(this->x * this->x +this->y * this->y);
+      return sqrt( r2() );
     }
+
     double r2() const
     {
-      return x * x + y * y;
+      return (x*x) + (y*y);
     }
 
     double r() const
@@ -44,7 +43,7 @@ class Vector2D {
       return ( r() * r() * r() );
     }
 
-    Vector2D setPolar(const double radius, const double angle)
+    Vector2D & setPolar(const double radius, const double angle)
     {
       x = radius * std::cos(angle);
       y = radius * std::sin(angle);
@@ -115,21 +114,21 @@ class Vector2D {
        operator overload
     */
 
-    Vector2D operator += (const Vector2D & v)
+    Vector2D & operator += (const Vector2D & v)
     {
       x += v.x;
       y += v.y;
       return *this;
     }
 
-    Vector2D operator + (const Vector2D & v)
+    Vector2D & operator + (const Vector2D & v)
     {
       x += v.x;
       y += v.y;
       return *this;
     }
 
-    Vector2D operator -= (const Vector2D & v)
+    Vector2D & operator -= (const Vector2D & v)
     {
       x -= v.x;
       y -= v.y;
