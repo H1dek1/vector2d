@@ -78,6 +78,11 @@ class Vector2D {
       return ( (x * v.x) + (y * v.y) );
     }
 
+    double dot(Vector2D v) const
+    {
+      return innerProduct(v);
+    }
+
     double outerProduct(Vector2D v) const
     {
       return ( (x * v.y) - (y * v.x) );
