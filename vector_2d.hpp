@@ -156,9 +156,10 @@ class Vector2D {
 
     Vector2D operator * (const double a)
     {
-      x *= a;
-      y *= a;
-      return *this;
+      Vector2D vv;
+      vv.x = x * a;
+      vv.y = y * a;
+      return vv;
     }
 
     Vector2D operator /= (const double & a)
