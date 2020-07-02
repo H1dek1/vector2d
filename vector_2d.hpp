@@ -73,12 +73,12 @@ class Vector2D {
       return vec;
     }
 
-    double innerProduct(Vector2D v) const
+    double innerProduct(const Vector2D v) const
     {
       return ( (x * v.x) + (y * v.y) );
     }
 
-    double dot(Vector2D v) const
+    double dot(const Vector2D v) const
     {
       return innerProduct(v);
     }
@@ -126,11 +126,12 @@ class Vector2D {
       return *this;
     }
 
-    Vector2D & operator + (const Vector2D & v)
+    Vector2D operator + (const Vector2D & v)
     {
-      x += v.x;
-      y += v.y;
-      return *this;
+      Vector2D vv;
+      vv.x = x + v.x;
+      vv.y = y + v.y;
+      return vv;
     }
 
     Vector2D & operator -= (const Vector2D & v)
@@ -142,9 +143,10 @@ class Vector2D {
 
     Vector2D operator - (const Vector2D & v)
     {
-      x = x - v.x;
-      y = y - v.y;
-      return *this;
+      Vector2D vv;
+      vv.x = x - v.x;
+      vv.y = y - v.y;
+      return vv;
     }
 
     Vector2D operator *= (const double & a)
@@ -171,9 +173,10 @@ class Vector2D {
 
     Vector2D operator / (const double & a)
     {
-      x /= a;
-      y /= a;
-      return *this;
+      Vector2D vv;
+      vv.x = x / a;
+      vv.y = y / a;
+      return vv;
     }
     
     Vector2D operator = (const Vector2D & v)
